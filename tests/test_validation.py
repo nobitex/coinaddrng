@@ -23,6 +23,9 @@ class TestValidation(unittest.TestCase):
         self.assertTrue(
             IValidationResult.implementedBy(ValidationResult))
 
+    def test_invalid_as_default(self):
+        result = validate("BTC", b"not_an_address")
+        self.assertFalse(result.valid)
 
 if __name__ == '__main__':
     unittest.main()

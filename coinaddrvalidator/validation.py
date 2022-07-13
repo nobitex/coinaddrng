@@ -717,7 +717,7 @@ def validate(currency_name, address):
             name='',
             ticker=currency_name,
             address=bytes(address, 'utf-8'),
-            valid=True,
+            valid=False,
             network='',
             address_type='address',
             is_extended=False
