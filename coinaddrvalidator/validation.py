@@ -705,7 +705,7 @@ def validate(currency_name, address):
       ...              valid=True, network='main')
 
     """
-
+    currency_name = currency_name.lower()
     tickers = [currency.Currencies.instances[curr].ticker for curr in currency.Currencies.instances]
     currencies = [currency.Currencies.instances[curr].name for curr in currency.Currencies.instances]
 
