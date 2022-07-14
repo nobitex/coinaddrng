@@ -716,7 +716,7 @@ def validate(currency_name, address):
         return ValidationResult(
             name='',
             ticker=currency_name,
-            address=bytes(address, 'utf-8'),
+            address=address if isinstance(address, bytes) else address.encode('utf-8'),
             valid=True,
             network='',
             address_type='address',
