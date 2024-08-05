@@ -33,6 +33,8 @@ from .interfaces import (
 from .base import NamedSubclassContainerBase
 from . import currency
 
+from coinaddrvalidator.attrs_zope import provides
+
 
 @provider(INamedSubclassContainer)
 class Validators(metaclass=NamedSubclassContainerBase):
@@ -59,7 +61,7 @@ class ValidatorBase(metaclass=ValidatorMeta):
         type='ValidationRequest',
         validator=[
             lambda i, a, v: type(v).__name__ == 'ValidationRequest',
-            attr.validators.provides(IValidationRequest)
+            provides(IValidationRequest)
             ]
     )
 
@@ -605,7 +607,7 @@ class ValidationRequest:
         converter=currency.Currencies.get,
         validator=[
             attr.validators.instance_of(currency.Currency),
-            attr.validators.provides(ICurrency)
+            provides(ICurrency)
             ])
     address = attr.ib(
         type=bytes,
