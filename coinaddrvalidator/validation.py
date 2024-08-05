@@ -32,7 +32,9 @@ from .interfaces import (
     )
 from .base import NamedSubclassContainerBase
 from . import currency
-from .attrs_zope import provides
+
+from coinaddrvalidator.attrs_zope import provides
+
 
 @provider(INamedSubclassContainer)
 class Validators(metaclass=NamedSubclassContainerBase):
