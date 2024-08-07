@@ -689,13 +689,14 @@ class ValidationResult:
         return self.valid
 
 
-def validate(currency_name, address):
+def validate(currency_name, address, default_valid=True):
     """Validate the given address according to currency type.
 
     This is the main entrypoint for using this library.
 
     :param currency_name str: The name or ticker code of the cryptocurrency.
     :param address (bytes, str): The crytocurrency address to validate.
+    :param default_valid (bool): The default value for validation if network does not supported. 
     :return: a populated ValidationResult object
     :rtype: :inst:`ValidationResult`
 
@@ -720,7 +721,7 @@ def validate(currency_name, address):
             name='',
             ticker=currency_name,
             address=bytes(address, 'utf-8'),
-            valid=False,
+            valid=default_valid,
             network='',
             address_type='address',
             is_extended=False

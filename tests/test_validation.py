@@ -24,11 +24,15 @@ class TestValidation(unittest.TestCase):
             IValidationResult.implementedBy(ValidationResult))
 
     def test_invalid_as_default(self):
-        result = validate("BTC", b"not_an_address")
+        result = validate("BTC", b"not_an_address", default_valid=False)
         self.assertFalse(result.valid)
 
+    def test_valid_as_default(self):
+        result = validate("FTM", "0x12341")
+        self.assertTrue(result.valid)
+
     def test_uppercase_symbol(self):
-        result = validate("BTC", "12nMGd6bzC8UpyWjd9HeZESZheZ8arttAb")
+        result = validate("BTC", "12nMGd6bzC8UpyWjd9HeZESZheZ8arttAb", default_valid=False)
         self.assertTrue(result.valid)
 
 if __name__ == '__main__':
