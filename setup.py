@@ -41,7 +41,7 @@ setup(
         'https://github.com/nobitex/coinaddrvalid/tarball/v%s' % version),
     license='MIT',
     install_requires=[
-        'attrs>=17.4.0',
+        'attrs>=24.0.0',
         'pycryptodome>=3.6.1',
         'base58check>=1.0.1',
         'zope.interface>=4.4.3',
