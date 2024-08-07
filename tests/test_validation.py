@@ -22,6 +22,18 @@ class TestValidation(unittest.TestCase):
             IValidationRequest.implementedBy(ValidationRequest))
         self.assertTrue(
             IValidationResult.implementedBy(ValidationResult))
+    
+    def test_wrong_network_bytes_input(self):
+        try:
+            validate("bt", b"12nMGd6bzC8UpyWjd9HeZESZheZ8arttAb")
+        except TypeError:
+            assert False
+
+    def test_wrong_network_str_input(self):
+        try:
+            validate("bt", "12nMGd6bzC8UpyWjd9HeZESZheZ8arttAb")
+        except TypeError:
+            assert False
 
     def test_invalid_as_default(self):
         result = validate("BTC", b"not_an_address", default_valid=False)
