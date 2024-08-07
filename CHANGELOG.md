@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.1.1] - 2023-06-25
+### Changed
+- Uses `pycryptodome` for keccak digests instead of `pysha3`, which is incompatible with Python 3.11+.
+
 ## [1.1.0] - 2022-01-07
 ### Added
 - LTC segwit address support
